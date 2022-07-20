@@ -13971,16 +13971,14 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Analyze-A/B-Test-Results">Analyze A/B Test Results<a class="anchor-link" href="#Analyze-A/B-Test-Results">&#182;</a></h1><p><a id='intro'></a></p>
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>A/B tests are very commonly performed by data analysts and data scientists. For this project, I tried to understand the results of an A/B test run by an e-commerce website.  The goal is to work through this notebook to help the company understand if they should:</p>
+<h1 id="Analyze-A/B-Test-Results">Analyze A/B Test Results<a class="anchor-link" href="#Analyze-A/B-Test-Results">&#182;</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>A/B tests are very commonly performed by data analysts and data scientists. For this project, you will be working to understand the results of an A/B test run by an e-commerce website.  Your goal is to work through this notebook to help the company understand if they should:</p>
 <ul>
 <li>Implement the new webpage, </li>
 <li>Keep the old webpage, or </li>
 <li>Perhaps run the experiment longer to make their decision.</li>
 </ul>
 <p><a id='probability'></a></p>
-<h2 id="Part-I---Probability">Part I - Probability<a class="anchor-link" href="#Part-I---Probability">&#182;</a></h2><p>To get started, let's import our libraries.</p>
-
+<h2 id="Part-I---Probability">Part I - Probability<a class="anchor-link" href="#Part-I---Probability">&#182;</a></h2>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -14289,12 +14287,6 @@ a.anchor-link {
 
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Do any of the rows have missing values?</p>
-
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14377,8 +14369,7 @@ dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove the inaccurate rows, and store the result in a new dataframe df2</span>
-<span class="n">df2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;group == &#39;treatment&#39; and landing_page== &#39;new_page&#39;&quot;</span><span class="p">),</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;group == &#39;control&#39; and landing_page== &#39;old_page&#39;&quot;</span><span class="p">)])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;group == &#39;treatment&#39; and landing_page== &#39;new_page&#39;&quot;</span><span class="p">),</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;group == &#39;control&#39; and landing_page== &#39;old_page&#39;&quot;</span><span class="p">)])</span>
 <span class="n">df2</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
@@ -14427,81 +14418,81 @@ dtype: int64</pre>
   </thead>
   <tbody>
     <tr>
-      <th>158398</th>
-      <td>906061</td>
-      <td>2017-01-05 17:54:40.903590</td>
-      <td>control</td>
-      <td>old_page</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>192254</th>
-      <td>662868</td>
-      <td>2017-01-16 16:16:37.915318</td>
-      <td>control</td>
-      <td>old_page</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>285788</th>
-      <td>828295</td>
-      <td>2017-01-13 15:11:36.312413</td>
-      <td>control</td>
-      <td>old_page</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>74894</th>
-      <td>779806</td>
-      <td>2017-01-23 14:03:41.280977</td>
-      <td>control</td>
-      <td>old_page</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>142981</th>
-      <td>631783</td>
-      <td>2017-01-12 07:41:13.584229</td>
-      <td>control</td>
-      <td>old_page</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>224853</th>
-      <td>658477</td>
-      <td>2017-01-04 18:00:30.586616</td>
+      <th>29358</th>
+      <td>880498</td>
+      <td>2017-01-19 06:43:46.254639</td>
       <td>treatment</td>
       <td>new_page</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>231025</th>
-      <td>691720</td>
-      <td>2017-01-13 03:40:47.277300</td>
+      <th>211033</th>
+      <td>763799</td>
+      <td>2017-01-19 13:09:19.857931</td>
       <td>treatment</td>
       <td>new_page</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>50529</th>
-      <td>648051</td>
-      <td>2017-01-09 03:36:34.248453</td>
+      <th>169407</th>
+      <td>632343</td>
+      <td>2017-01-24 08:37:22.161110</td>
       <td>treatment</td>
       <td>new_page</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>89799</th>
-      <td>843960</td>
-      <td>2017-01-03 08:04:38.630159</td>
+      <th>32665</th>
+      <td>903948</td>
+      <td>2017-01-13 15:38:29.957051</td>
+      <td>treatment</td>
+      <td>new_page</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>142391</th>
+      <td>769981</td>
+      <td>2017-01-07 02:34:54.009149</td>
       <td>control</td>
       <td>old_page</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>242835</th>
-      <td>721460</td>
-      <td>2017-01-11 22:51:26.792794</td>
+      <th>58081</th>
+      <td>657961</td>
+      <td>2017-01-13 05:27:53.222276</td>
+      <td>treatment</td>
+      <td>new_page</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>162905</th>
+      <td>683764</td>
+      <td>2017-01-03 07:43:18.607799</td>
+      <td>control</td>
+      <td>old_page</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>210274</th>
+      <td>885435</td>
+      <td>2017-01-12 11:10:26.689049</td>
+      <td>treatment</td>
+      <td>new_page</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>166981</th>
+      <td>907762</td>
+      <td>2017-01-09 03:29:55.095954</td>
+      <td>control</td>
+      <td>old_page</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>238769</th>
+      <td>923758</td>
+      <td>2017-01-03 22:05:16.403630</td>
       <td>treatment</td>
       <td>new_page</td>
       <td>0</td>
@@ -14523,9 +14514,7 @@ dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Double Check all of the incorrect rows were removed from df2 - </span>
-<span class="c1"># Output of the statement below should be 0</span>
-<span class="n">df2</span><span class="p">[((</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;treatment&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;landing_page&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;new_page&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span><span class="p">[((</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;treatment&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;landing_page&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;new_page&#39;</span><span class="p">))</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -14559,7 +14548,7 @@ dtype: int64</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>How many unique <strong>user_id</strong>s are in <strong>df2</strong>?</p>
+<p>Unique <strong>user_id</strong>s</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14602,7 +14591,7 @@ dtype: int64</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>user_id</strong> repeated in <strong>df2</strong> :</p>
+<p>Duplicates</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14685,12 +14674,6 @@ dtype: int64</pre>
 
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Display the rows for the duplicate <strong>user_id</strong>?</p>
-
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14728,20 +14711,13 @@ dtype: int64</pre>
 
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Remove <strong>one</strong> of the rows with a duplicate <strong>user_id</strong>, from the <strong>df2</strong> dataframe.</p>
-
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove one of the rows with a duplicate user_id..</span>
-<span class="n">df2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Check again if the row with a duplicate user_id is deleted or not</span>
 <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">keep</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)]</span>
 </pre></div>
@@ -14804,7 +14780,7 @@ dtype: int64</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>What is the probability of an individual converting regardless of the page they receive?</p>
+<p>Probability of an individual converting regardless of the page they receive</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14847,7 +14823,7 @@ dtype: int64</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Given that an individual was in the <code>control</code> group, what is the probability they converted?</p>
+<p>Probabitlity that an individual  in the <code>control</code> group converted.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14890,7 +14866,7 @@ dtype: int64</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Given that an individual was in the <code>treatment</code> group, what is the probability they converted?</p>
+<p>Probability that an individual  in the <code>treatment</code> group converted</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14936,7 +14912,7 @@ dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate the actual difference (obs_diff) between the conversion rates for the two groups.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The actual difference (obs_diff) between the conversion rates for the two groups.</span>
 <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;group==&#39;control&#39;&quot;</span><span class="p">)[</span><span class="s1">&#39;converted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;group==&#39;treatment&#39;&quot;</span><span class="p">)[</span><span class="s1">&#39;converted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
@@ -14971,7 +14947,7 @@ dtype: int64</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>What is the probability that an individual received the new page?</p>
+<p>The probability that an individual received the new page</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15020,7 +14996,15 @@ dtype: int64</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Now, we can do hypothesis testing to see if our result is significant. We assume that the old page is better unless the new page proves to be definitely better at a Type I error rate of 5% our null hypothesis ($H_0$) and alternative hypothesis($H_1$) would be:</p>
+<p><a id='ab_test'></a></p>
+<h2 id="Part-II---A/B-Test">Part II - A/B Test<a class="anchor-link" href="#Part-II---A/B-Test">&#182;</a></h2><p>Since a timestamp is associated with each event, we could run a hypothesis test continuously as long as you observe the events.</p>
+<p>However, then the hard questions would be:</p>
+<ul>
+<li>Do you stop as soon as one page is considered significantly better than another or does it need to happen consistently for a certain amount of time?  </li>
+<li>How long do you run to render a decision that neither page is better than another?  </li>
+</ul>
+<p>These questions are the difficult parts associated with A/B tests in general.</p>
+<p>We assume that the old page is better unless the new page proves to be definitely better at a Type I error rate of 5%. The null and alternative hypotheses are <strong>$H_0$</strong> and <strong>$H_1$</strong> respectively.</p>
 
 </div>
 </div>
@@ -15034,13 +15018,15 @@ $$
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Under the null hypothesis $H_0$, assume that $p_{new}$ and $p_{old}$ are equal. Furthermore, assuming that $p_{new}$ and $p_{old}$ both are equal to the <strong>converted</strong> success rate in the <code>df2</code> data regardless of the page. So, our assumption is: <br><br></p>
-$$p_{new} = p_{old} = p_{population}$$
+<h3 id="ToDo-2.2---Null-Hypothesis-$H_0$-Testing">ToDo 2.2 - Null Hypothesis $H_0$ Testing<a class="anchor-link" href="#ToDo-2.2---Null-Hypothesis-$H_0$-Testing">&#182;</a></h3><p>Under the null hypothesis $H_0$, we assume that $p_{new}$ and $p_{old}$ are equal. Furthermore, we assume that $p_{new}$ and $p_{old}$ both are equal to the <strong>converted</strong> success rate in the <code>df2</code> data regardless of the page. So, our assumption is: <br><br></p>
+<center>
+$p_{new}$ = $p_{old}$ = $p_{population}$
+</center>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>What is the <strong>conversion rate</strong> for $p_{new}$ under the null hypothesis?</p>
+<p>The <strong>conversion rate</strong> for $p_{new}$ under the null hypothesis.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15084,7 +15070,7 @@ $$p_{new} = p_{old} = p_{population}$$
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>What is the <strong>conversion rate</strong> for $p_{old}$ under the null hypothesis?</p>
+<p>The <strong>conversion rate</strong> for $p_{old}$ under the null hypothesis.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15128,7 +15114,7 @@ $$p_{new} = p_{old} = p_{population}$$
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>What is $n_{new}$, the number of individuals in the treatment group?</p>
+<p>Number of individuals in the treatment group:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15172,7 +15158,7 @@ $$p_{new} = p_{old} = p_{population}$$
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>What is $n_{old}$, the number of individuals in the control group?</p>
+<p>Number of individuals in the control group.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15213,29 +15199,19 @@ $$p_{new} = p_{old} = p_{population}$$
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We simulate $n_{new}$ transactions with a conversion rate of $p_{new}$ under the null hypothesis.</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Simulate a Sample for the treatment Group</span>
-<span class="n">new_page_converted</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">size</span><span class="o">=</span><span class="n">n_new</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="n">p_new</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">p_new</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Simulate a Sample for the control Group</span>
-<span class="n">old_page_converted</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">size</span><span class="o">=</span><span class="n">n_old</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="n">p_old</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">p_old</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_page_converted</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">size</span><span class="o">=</span><span class="n">n_new</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="n">p_new</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">p_new</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -15246,7 +15222,27 @@ $$p_{new} = p_{old} = p_{population}$$
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The difference in the "converted" probability $(p{'}_{new}$ - $p{'}_{old})$ for simulated samples:</p>
+<p>We simulate $n_{old}$ transactions with a conversion rate of $p_{old}$ under the null hypothesis.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">old_page_converted</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">size</span><span class="o">=</span><span class="n">n_old</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="n">p_old</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">p_old</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Difference in the "converted" probability $(p{'}_{new}$ - $p{'}_{old})$ for simulated samples.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15290,7 +15286,8 @@ $$p_{new} = p_{old} = p_{population}$$
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Re-creating <code>new_page_converted</code> and <code>old_page_converted</code> and finding the $(p{'}_{new}$ - $p{'}_{old})$ value 10,000 times using the same simulation process.</p>
+<p><strong>Sampling distribution</strong> <br>
+ Now, we re-create <code>new_page_converted</code> and <code>old_page_converted</code> and find the $(p{'}_{new}$ - $p{'}_{old})$ value 10,000 times using the same simulation process as above.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15299,8 +15296,7 @@ $$p_{new} = p_{old} = p_{population}$$
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sampling distribution </span>
-<span class="n">new_page_converted</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n_new</span><span class="p">,</span> <span class="n">p_new</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span><span class="o">/</span><span class="n">n_new</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_page_converted</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n_new</span><span class="p">,</span> <span class="n">p_new</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span><span class="o">/</span><span class="n">n_new</span>
 <span class="n">old_page_converted</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n_old</span><span class="p">,</span> <span class="n">p_old</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span><span class="o">/</span><span class="n">n_old</span>
 <span class="n">p_diffs</span><span class="o">=</span><span class="n">new_page_converted</span><span class="o">-</span><span class="n">old_page_converted</span>
 </pre></div>
@@ -15310,19 +15306,14 @@ $$p_{new} = p_{old} = p_{population}$$
 </div>
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Histogram</p>
-
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">p_diffs</span><span class="p">);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">p_diffs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">obs_diff</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15338,13 +15329,27 @@ $$p_{new} = p_{old} = p_{population}$$
 <div class="jp-OutputArea-child">
 
     
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&lt;matplotlib.lines.Line2D at 0x2a753c27850&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 
 
 <div class="jp-RenderedImage jp-OutputArea-output ">
-<img src="data:image/png;base64,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"
+<img src="data:image/png;base64,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"
 >
 </div>
 
@@ -15354,12 +15359,6 @@ $$p_{new} = p_{old} = p_{population}$$
 
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>What proportion of the <strong>p_diffs</strong> are greater than the actual difference observed in the <code>df2</code> data?</p>
-
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15388,7 +15387,7 @@ $$p_{new} = p_{old} = p_{population}$$
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.9061</pre>
+<pre>0.9029</pre>
 </div>
 
 </div>
@@ -15402,12 +15401,6 @@ $$p_{new} = p_{old} = p_{population}$$
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>This value is called p-value. This value needs to be less than Type I error rate for us to reject the null hypothesis. Otherwise, we fail to reject null hypothesis.</p>
 <p>In our case, p-value is 0.7495 which is larger than Type I error rate. Hence, we fail to reject null hypothesis. Hence, new page is not better than old page.</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We could also use a built-in to achieve similar results.  Though using the built-in might be easier to code, the above portions are a walkthrough of the ideas that are critical to correctly thinking about statistical significance.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15442,7 +15435,9 @@ $$p_{new} = p_{old} = p_{population}$$
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z_score</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">proportions_ztest</span><span class="p">([</span><span class="n">convert_old</span><span class="p">,</span><span class="n">convert_new</span><span class="p">],[</span><span class="n">n_old</span><span class="p">,</span><span class="n">n_new</span><span class="p">],</span><span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;smaller&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="c1"># ToDo: Complete the sm.stats.proportions_ztest() method arguments</span>
+<span class="n">z_score</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">proportions_ztest</span><span class="p">([</span><span class="n">convert_old</span><span class="p">,</span><span class="n">convert_new</span><span class="p">],[</span><span class="n">n_old</span><span class="p">,</span><span class="n">n_new</span><span class="p">],</span><span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;smaller&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">z_score</span><span class="p">,</span> <span class="n">p_value</span><span class="p">)</span>
 </pre></div>
 
@@ -15475,12 +15470,6 @@ $$p_{new} = p_{old} = p_{population}$$
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>What do the z-score and p-value you computed in the previous question mean for the conversion rates of the old and new pages?</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>$z_{alpha} = 1.625$ 
 As z<em>score &lt; $z</em>{alpha}$,  we fail to reject to null hypothesis which is same as our previous result in j.</p>
 
@@ -15488,7 +15477,8 @@ As z<em>score &lt; $z</em>{alpha}$,  we fail to reject to null hypothesis which 
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="A-regression-approach">A regression approach<a class="anchor-link" href="#A-regression-approach">&#182;</a></h4>
+<p><a id='regression'></a></p>
+<h3 id="Part-III---A-regression-approach">Part III - A regression approach<a class="anchor-link" href="#Part-III---A-regression-approach">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -15670,19 +15660,19 @@ As z<em>score &lt; $z</em>{alpha}$,  we fail to reject to null hypothesis which 
   </thead>
   <tbody>
     <tr>
-      <th>87303</th>
-      <td>632746</td>
-      <td>2017-01-20 03:48:04.948584</td>
-      <td>treatment</td>
-      <td>new_page</td>
+      <th>94948</th>
+      <td>642662</td>
+      <td>2017-01-17 05:53:57.112871</td>
+      <td>control</td>
+      <td>old_page</td>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>183545</th>
-      <td>677114</td>
-      <td>2017-01-15 21:10:35.098617</td>
+      <th>288071</th>
+      <td>927457</td>
+      <td>2017-01-09 01:06:04.509472</td>
       <td>control</td>
       <td>old_page</td>
       <td>0</td>
@@ -15690,39 +15680,9 @@ As z<em>score &lt; $z</em>{alpha}$,  we fail to reject to null hypothesis which 
       <td>0</td>
     </tr>
     <tr>
-      <th>126608</th>
-      <td>655366</td>
-      <td>2017-01-04 18:30:52.805279</td>
-      <td>treatment</td>
-      <td>new_page</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>283947</th>
-      <td>776277</td>
-      <td>2017-01-22 10:21:11.086889</td>
-      <td>treatment</td>
-      <td>new_page</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>96672</th>
-      <td>905834</td>
-      <td>2017-01-09 21:41:07.895360</td>
-      <td>treatment</td>
-      <td>new_page</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>168453</th>
-      <td>649036</td>
-      <td>2017-01-09 01:13:15.633091</td>
+      <th>18621</th>
+      <td>783287</td>
+      <td>2017-01-04 11:06:31.122089</td>
       <td>control</td>
       <td>old_page</td>
       <td>0</td>
@@ -15730,44 +15690,74 @@ As z<em>score &lt; $z</em>{alpha}$,  we fail to reject to null hypothesis which 
       <td>0</td>
     </tr>
     <tr>
-      <th>172001</th>
-      <td>889356</td>
-      <td>2017-01-06 21:01:01.016696</td>
-      <td>control</td>
-      <td>old_page</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>26666</th>
-      <td>807106</td>
-      <td>2017-01-19 18:08:31.558601</td>
-      <td>control</td>
-      <td>old_page</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>109623</th>
-      <td>816967</td>
-      <td>2017-01-14 16:02:03.729616</td>
-      <td>control</td>
-      <td>old_page</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>156651</th>
-      <td>823616</td>
-      <td>2017-01-15 01:47:04.180494</td>
+      <th>9359</th>
+      <td>860106</td>
+      <td>2017-01-11 09:02:46.191445</td>
       <td>treatment</td>
       <td>new_page</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
+    </tr>
+    <tr>
+      <th>46378</th>
+      <td>919386</td>
+      <td>2017-01-17 18:46:09.672617</td>
+      <td>treatment</td>
+      <td>new_page</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2426</th>
+      <td>929406</td>
+      <td>2017-01-09 07:55:51.909481</td>
+      <td>control</td>
+      <td>old_page</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>84958</th>
+      <td>938193</td>
+      <td>2017-01-05 18:52:36.394110</td>
+      <td>control</td>
+      <td>old_page</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>209323</th>
+      <td>651394</td>
+      <td>2017-01-15 17:21:38.957549</td>
+      <td>control</td>
+      <td>old_page</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>86236</th>
+      <td>807459</td>
+      <td>2017-01-04 19:17:59.220923</td>
+      <td>control</td>
+      <td>old_page</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>112806</th>
+      <td>883539</td>
+      <td>2017-01-09 12:10:44.436367</td>
+      <td>control</td>
+      <td>old_page</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -15780,12 +15770,6 @@ As z<em>score &lt; $z</em>{alpha}$,  we fail to reject to null hypothesis which 
 
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Using <strong>statsmodels</strong> to instantiateregression model on the two columns created above, then fitting the model to predict whether or not an individual converts:</p>
-
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15859,7 +15843,7 @@ As z<em>score &lt; $z</em>{alpha}$,  we fail to reject to null hypothesis which 
   <td>Dependent Variable:</td>     <td>converted</td>          <td>AIC:</td>        <td>212780.3502</td>
 </tr>
 <tr>
-         <td>Date:</td>        <td>2022-06-19 15:15</td>       <td>BIC:</td>        <td>212801.5095</td>
+         <td>Date:</td>        <td>2022-07-20 19:38</td>       <td>BIC:</td>        <td>212801.5095</td>
 </tr>
 <tr>
    <td>No. Observations:</td>       <td>290584</td>       <td>Log-Likelihood:</td>  <td>-1.0639e+05</td>
@@ -15899,12 +15883,6 @@ As z<em>score &lt; $z</em>{alpha}$,  we fail to reject to null hypothesis which 
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>What is the p-value associated with <strong>ab_page</strong>?</p>
-
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>In part II, p-value is 0.1899. In logistic regression in Part III, the hypothesis is 2 sided whereas in Part II, the hypothesis is one sided. Because of this, p value in part III is twice as part II.</p>
 
 </div>
@@ -15913,11 +15891,6 @@ As z<em>score &lt; $z</em>{alpha}$,  we fail to reject to null hypothesis which 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>There can be many factors influencing converstaion rate. It is good idea to add them to regression model because they may have huge influence on results which might get neglected otherwise. The disadvantage is that it can affect result in any direction.</p>
 
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Impact-of-country-on-user-experience:">Impact of country on user experience:<a class="anchor-link" href="#Impact-of-country-on-user-experience:">&#182;</a></h4>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -16226,7 +16199,8 @@ As z<em>score &lt; $z</em>{alpha}$,  we fail to reject to null hypothesis which 
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">df_merged</span><span class="p">[</span><span class="s1">&#39;converted&#39;</span><span class="p">],</span><span class="n">df_merged</span><span class="p">[[</span><span class="s1">&#39;intercept&#39;</span><span class="p">,</span><span class="s1">&#39;ab_page&#39;</span><span class="p">,</span><span class="s1">&#39;US&#39;</span><span class="p">,</span><span class="s1">&#39;UK&#39;</span><span class="p">,</span><span class="s1">&#39;US_ab_page&#39;</span><span class="p">,</span><span class="s1">&#39;UK_ab_page&#39;</span><span class="p">]])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Fit your model, and summarize the results</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">df_merged</span><span class="p">[</span><span class="s1">&#39;converted&#39;</span><span class="p">],</span><span class="n">df_merged</span><span class="p">[[</span><span class="s1">&#39;intercept&#39;</span><span class="p">,</span><span class="s1">&#39;ab_page&#39;</span><span class="p">,</span><span class="s1">&#39;US&#39;</span><span class="p">,</span><span class="s1">&#39;UK&#39;</span><span class="p">,</span><span class="s1">&#39;US_ab_page&#39;</span><span class="p">,</span><span class="s1">&#39;UK_ab_page&#39;</span><span class="p">]])</span>
 <span class="n">res2</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="n">res2</span><span class="o">.</span><span class="n">summary2</span><span class="p">()</span>
 </pre></div>
@@ -16271,7 +16245,7 @@ As z<em>score &lt; $z</em>{alpha}$,  we fail to reject to null hypothesis which 
   <td>Dependent Variable:</td>     <td>converted</td>          <td>AIC:</td>        <td>212782.6602</td>
 </tr>
 <tr>
-         <td>Date:</td>        <td>2022-06-19 15:17</td>       <td>BIC:</td>        <td>212846.1381</td>
+         <td>Date:</td>        <td>2022-07-20 19:38</td>       <td>BIC:</td>        <td>212846.1381</td>
 </tr>
 <tr>
    <td>No. Observations:</td>       <td>290584</td>       <td>Log-Likelihood:</td>  <td>-1.0639e+05</td>
@@ -16326,44 +16300,6 @@ As z<em>score &lt; $z</em>{alpha}$,  we fail to reject to null hypothesis which 
 <p>All of the p-values are still greater than Type I error rate for every category. Hence, we still fail to reject null hypothesis for all countries.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">call</span>
-<span class="n">call</span><span class="p">([</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;nbconvert&#39;</span><span class="p">,</span> <span class="s1">&#39;Analyze_ab_test_results_notebook.ipynb&#39;</span><span class="p">])</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>1</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 </body>
 
